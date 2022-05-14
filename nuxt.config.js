@@ -1,6 +1,10 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
-  buildDir: 'dist',
+  target: 'static',
+  ssr: false,
+  generate: {
+    fallback: false
+  },
   head: {
     title: 'İlliyyûn TV',
     meta: [
