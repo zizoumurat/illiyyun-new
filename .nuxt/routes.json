@@ -1,0 +1,65 @@
+[
+  {
+    "name": "blog",
+    "path": "/blog",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/blog/index.vue",
+    "chunkName": "pages/blog/index",
+    "_name": "_793ada8c"
+  },
+  {
+    "name": "photos",
+    "path": "/photos",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/photos/index.vue",
+    "chunkName": "pages/photos/index",
+    "_name": "_30c614ce"
+  },
+  {
+    "name": "videos",
+    "path": "/videos",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/videos/index.vue",
+    "chunkName": "pages/videos/index",
+    "_name": "_46a2f0a0"
+  },
+  {
+    "name": "videos-all",
+    "path": "/videos/all",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/videos/all/index.vue",
+    "chunkName": "pages/videos/all/index",
+    "_name": "_5fdcddc2"
+  },
+  {
+    "name": "photos-detail-imagId",
+    "path": "/photos/detail/:imagId",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/photos/detail/_imagId/index.vue",
+    "chunkName": "pages/photos/detail/_imagId/index",
+    "_name": "_b1e2ce1c"
+  },
+  {
+    "name": "videos-watch-videoId",
+    "path": "/videos/watch/:videoId",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/videos/watch/_videoId/index.vue",
+    "chunkName": "pages/videos/watch/_videoId/index",
+    "_name": "_2974a968"
+  },
+  {
+    "name": "blog-slug",
+    "path": "/blog/:slug",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/blog/_slug.vue",
+    "chunkName": "pages/blog/_slug",
+    "_name": "_7ca81d1c"
+  },
+  {
+    "name": "photos-pageId",
+    "path": "/photos/:pageId",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/photos/_pageId/index.vue",
+    "chunkName": "pages/photos/_pageId/index",
+    "_name": "_220f7d33"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/muratdere/Desktop/illiyyun-new/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_15a829cd"
+  }
+]
