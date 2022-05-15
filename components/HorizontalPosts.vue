@@ -15,7 +15,10 @@
               {{ post.title }}
             </p>
             <p class="card-date text-muted">
-              {{getPhotoDate(post)}}
+              {{ getPhotoDate(post) }}
+            </p>
+            <p class="card-date text-muted">
+              {{ post.views ? post.views : 1 }} Görüntülenme
             </p>
           </div>
         </div>
@@ -56,11 +59,11 @@ export default {
 .card-body {
   padding: 1.25rem 0;
 }
-.card-text{
+.card-text {
   font-size: 1.2rem;
   margin: 0;
 }
-.card-date{
+.card-date {
   margin: 0;
 }
 .card-link {

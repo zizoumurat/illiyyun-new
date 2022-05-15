@@ -1,15 +1,15 @@
-export const CommentItem = () => import('../../components/video/CommentItem.vue' /* webpackChunkName: "components/comment-item" */).then(c => wrapFunctional(c.default || c))
-export const HorizontalVideoCard = () => import('../../components/video/HorizontalVideoCard.vue' /* webpackChunkName: "components/horizontal-video-card" */).then(c => wrapFunctional(c.default || c))
-export const InsertComment = () => import('../../components/video/InsertComment.vue' /* webpackChunkName: "components/insert-comment" */).then(c => wrapFunctional(c.default || c))
-export const Video = () => import('../../components/video/Video.vue' /* webpackChunkName: "components/video" */).then(c => wrapFunctional(c.default || c))
-export const Videos = () => import('../../components/video/Videos.vue' /* webpackChunkName: "components/videos" */).then(c => wrapFunctional(c.default || c))
-export const PhotoGallery = () => import('../../components/photos/PhotoGallery.vue' /* webpackChunkName: "components/photo-gallery" */).then(c => wrapFunctional(c.default || c))
-export const PhotoModal = () => import('../../components/photos/PhotoModal.vue' /* webpackChunkName: "components/photo-modal" */).then(c => wrapFunctional(c.default || c))
-export const Footer = () => import('../../components/Footer.vue' /* webpackChunkName: "components/footer" */).then(c => wrapFunctional(c.default || c))
-export const GoUp = () => import('../../components/GoUp.vue' /* webpackChunkName: "components/go-up" */).then(c => wrapFunctional(c.default || c))
-export const Header = () => import('../../components/Header.vue' /* webpackChunkName: "components/header" */).then(c => wrapFunctional(c.default || c))
-export const HorizontalPosts = () => import('../../components/HorizontalPosts.vue' /* webpackChunkName: "components/horizontal-posts" */).then(c => wrapFunctional(c.default || c))
-export const Posts = () => import('../../components/posts/Posts.vue' /* webpackChunkName: "components/posts" */).then(c => wrapFunctional(c.default || c))
+export { default as CommentItem } from '../../components/video/CommentItem.vue'
+export { default as HorizontalVideoCard } from '../../components/video/HorizontalVideoCard.vue'
+export { default as InsertComment } from '../../components/video/InsertComment.vue'
+export { default as Video } from '../../components/video/Video.vue'
+export { default as Videos } from '../../components/video/Videos.vue'
+export { default as PhotoGallery } from '../../components/photos/PhotoGallery.vue'
+export { default as PhotoModal } from '../../components/photos/PhotoModal.vue'
+export { default as Footer } from '../../components/Footer.vue'
+export { default as GoUp } from '../../components/GoUp.vue'
+export { default as Header } from '../../components/Header.vue'
+export { default as HorizontalPosts } from '../../components/HorizontalPosts.vue'
+export { default as Posts } from '../../components/posts/Posts.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

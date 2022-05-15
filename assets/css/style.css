@@ -617,6 +617,7 @@ button:focus {
   left: 70px;
   top: 60px;
   height: 80px;
+  z-index: 999;
 }
 .result-item {
   height: 34px;

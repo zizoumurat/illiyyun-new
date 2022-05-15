@@ -23,6 +23,7 @@
               <small
                 ><i class="fa fa-clock-o" aria-hidden="true"></i>
                 {{ convertDate(post.created_at) }}
+                {{ post.views ? post.views : 1 }} Görüntülenme
               </small>
             </p>
             <div class="markdown-custom">

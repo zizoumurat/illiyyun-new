@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="container-fluid">
+    <div v-if="fetched" class="container-fluid">
       <div class="row">
         <div class="col">
           <div class="p-2">
@@ -18,6 +18,7 @@
                 <h1>{{ blog.title }}</h1>
                 <div class="share-icons">
                   <p>{{convertDate(blog.created_at)}}</p>
+                  <p>{{ blog.views ? blog.views + 1 : 2 }} Görüntülenme</p>
                   <i class="fa fa-twitter" @click="share('twitter')"></i>
                   <i class="fa fa-facebook" @click="share('facebook')"></i>
                   <i class="fa fa-telegram" @click="share('telegram')"></i>
@@ -64,17 +65,24 @@ export default {
       `/blogs?slug=${this.$route.params.slug}`
     );
 
+     await this.$axios.get(
+      `/blogs/increment/${data[0].id}`
+    );
+
     this.blog = data[0];
 
     const { data: blogs } = await this.$axios.get(`/blogs`);
 
     this.otherBlogs = blogs.filter((blog) => blog.id !== this.blog.id).sort((a, b) => (a.created_at < b.created_at) ? 1 : -1);
+
+    this.fetched = true;
   },
 
   data() {
     return {
       blog: {},
       otherBlogs: {},
+      fetched: false
     };
   },
   computed: {
