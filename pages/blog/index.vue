@@ -10,7 +10,8 @@
 <script>
 export default {
   async fetch() {
-    const { data } = await this.$axios.get("/blogs?_limit=-1");
+    const query = this.$route.query.q ? `/blogs?_limit=-1&title_contains=${this.$route.query.q}` : '/blogs?_limit=-1'
+    const { data } = await this.$axios.get(query);
     const { data: banner } = await this.$axios.get("/blog-banner");
 
     data.sort((a, b) => {

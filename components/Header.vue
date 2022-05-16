@@ -11,6 +11,35 @@
         </div>
 
         <div id="modalStyle">
+          <div class="relative">
+            <div v-if="showSearchResult" class="search-result-mobile">
+                <a
+                    :href="videoCount > 0 ? `/videos/all?q=${searchKey}` : '#'"
+                    class="result-item"
+                  >
+                    <span class="left">Videolar</span>
+                    <span class="right">{{ videoCount }} İçerik</span>
+                  </a>
+                  <a
+                    :href="
+                      galleryCount > 0 ? `/photos?q=${searchKey}` : '#'
+                    "
+                    class="result-item"
+                  >
+                    <span class="left">Resimler</span>
+                    <span class="right">{{ galleryCount }} İçerik</span>
+                  </a>
+                  <a
+                    :href="
+                      blogCount > 0 ? `/blog?q=${searchKey}` : '#'
+                    "
+                    class="result-item"
+                  >
+                    <span class="left">Yazılar</span>
+                    <span class="right">{{ blogCount }} İçerik</span>
+                  </a>
+            </div>
+          </div>
           <div class="input-group">
             <input
               type="text"
@@ -18,6 +47,7 @@
               class="form-control"
               placeholder="Ara"
               id="modalSearchBar"
+              v-model="searchKey"
               @input="search"
             />
 
@@ -139,17 +169,30 @@
                   </div>
                 </div>
                 <div v-if="showSearchResult" class="search-result">
-                  <a href="#" class="result-item">
+                  <a
+                    :href="videoCount > 0 ? `/videos/all?q=${searchKey}` : '#'"
+                    class="result-item"
+                  >
                     <span class="left">Videolar</span>
-                    <span class="right">{{videoCount}} İçerik</span>
+                    <span class="right">{{ videoCount }} İçerik</span>
                   </a>
-                  <a href="#" class="result-item">
+                  <a
+                    :href="
+                      galleryCount > 0 ? `/photos?q=${searchKey}` : '#'
+                    "
+                    class="result-item"
+                  >
                     <span class="left">Resimler</span>
-                    <span class="right">{{galleryCount}} İçerik</span>
+                    <span class="right">{{ galleryCount }} İçerik</span>
                   </a>
-                  <a href="#" class="result-item">
+                  <a
+                    :href="
+                      blogCount > 0 ? `/blog?q=${searchKey}` : '#'
+                    "
+                    class="result-item"
+                  >
                     <span class="left">Yazılar</span>
-                    <span class="right">{{blogCount}} İçerik</span>
+                    <span class="right">{{ blogCount }} İçerik</span>
                   </a>
                 </div>
               </div>
@@ -264,14 +307,14 @@ export default {
       timer: undefined,
       videoCount: 0,
       blogCount: 0,
-      galleryCount:0
+      galleryCount: 0,
     };
   },
 
   methods: {
     async search() {
-       clearTimeout(this.timer); 
-       this.timer = setTimeout(this.doSearch, 500)
+      clearTimeout(this.timer);
+      this.timer = setTimeout(this.doSearch, 500);
     },
 
     async doSearch() {
@@ -287,27 +330,26 @@ export default {
           },
         };
 
+        const { data } = await this.$axios.get(
+          "/blogs/count?title_contains=" + this.searchKey
+        );
+        this.blogCount = data;
+
+        const { data: galleryCount } = await this.$axios.get(
+          `/galleries/count?_where[_or][0][description_contains]=${this.searchKey}&_where[_or][1][tags_contains]=${this.searchKey}`
+        );
+        this.galleryCount = galleryCount;
+
         const videos = await this.$axios.$get(
           "https://api.vimeo.com/me/videos?query=" + this.searchKey,
           config
         );
 
         this.videoCount = videos.data.length;
-
-        const { data } = await this.$axios.get(
-          "/blogs/count?title_contains=" + this.searchKey
-        );
-        this.blogCount = data;
-
-        const { data:galleryCount } = await this.$axios.get(
-          "/blogs/count?title_contains=" + this.searchKey
-        );
-        this.galleryCount = galleryCount;
       } else {
         this.showSearchResult = false;
       }
-    }
-    
+    },
   },
 };
 </script>

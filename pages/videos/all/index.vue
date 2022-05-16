@@ -1,15 +1,18 @@
 <template>
   <div>
-    <Header  />
-    <HorizontalVideoCard :url="'&per_page=12&page=1'"></HorizontalVideoCard>
+    <Header />
+    <HorizontalVideoCard :url="query"></HorizontalVideoCard>
   </div>
 </template>
 <script>
 export default {
   async fetch() {
+    this.query = this.$route.query.q
+      ? `query=${this.$route.query.q}`
+      : "&per_page=12&page=1";
     await this.$store.dispatch(
       "getVideosForHorizontalVidCard",
-      "&per_page=12&page=1"
+      this.query
     );
     const { data: banner } = await this.$axios.get("/videos-banner");
 
@@ -18,7 +21,8 @@ export default {
 
   data() {
     return {
-      banner: ''
+      query: "",
+      banner: "",
     };
   },
 };

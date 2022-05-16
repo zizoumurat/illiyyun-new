@@ -20,7 +20,11 @@
               $videoTime(relatedItem.duration)
             }}</span>
             <nuxt-link :to="'/videos/watch/' + relatedItem.link.split('/')[3]">
-            <img :src="relatedItem.pictures.sizes[3].link" style="width: 100%; cursor: pointer" alt="">
+              <img
+                :src="relatedItem.pictures.sizes[3].link"
+                style="width: 100%; cursor: pointer"
+                alt=""
+              />
             </nuxt-link>
           </div>
         </div>
@@ -61,6 +65,7 @@
       </div>
     </div>
     <infinite-loading
+      v-if="!this.$route.query.q"
       :key="infiniteKey"
       spinner="spiral"
       @infinite="infiniteScroll"
