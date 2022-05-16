@@ -1,24 +1,6 @@
 <template>
   <div>
     <Header :banner-image-url="homeBanner" />
-    <div>
-      <b-modal
-        id="modal-center"
-        size="lg"
-        hide-footer
-        ref="app-modal"
-        centered
-        :title="say + ' Saniye içerisinde kapanacak'"
-        :header-text-variant="'dark'"
-      >
-        <a href="https://illiyyuntv.com/illiyyuntv-android.apk" target="blank">
-          <img
-            src="https://beyraha.com/media/resimler/illiyyun/android-down.jpg"
-            style="width: 100%"
-            alt=""
-        /></a>
-      </b-modal>
-    </div>
     <Posts v-for="(post, index) in posts" :key="index" :post="post"></Posts>
   </div>
 </template>
